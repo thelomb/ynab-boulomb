@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+  <div class="container">
+   <div class ="row mb-4">
+    {{ server_knowledge }}
+    {{object}}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang("fr") }}
+
+{% endblock %}
+

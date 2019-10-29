@@ -1,0 +1,49 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}US'19 - {{ title }}{% else %}The Boulomb YNAB{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+  <link rel="stylesheet" href="/static/css/fontawesome.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/milo.css" />
+  <link rel="stylesheet" href="/static/css/sl.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<script src="/static/js/fontawesome.js"></script>
+
+
+
+{% endblock %}
+
+{% block navbar %}
+  {% include '_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+  <!--<main class="main py-5 bg-light" role="main">-->
+
+  <main class="main pt-4 mb-4" role="main">
+    <div class="container">
+        <div class="row">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category}}" role="alert">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+          {% endwith %}
+        </div>
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    <div>
+  </main>
+  {% include '_footer.html' %}
+{% endblock %}
+
+{% block scripts %}
+  {% include '_scripts.html' %}
+{% endblock %}

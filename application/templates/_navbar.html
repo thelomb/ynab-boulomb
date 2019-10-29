@@ -1,0 +1,51 @@
+      <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-light bg-white absolute-top">
+          <div class="container">
+            <button class="navbar-toggler order-2 order-md-1 ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand order-1 order-md-3"
+               href="
+                    {% if not current_user.is_anonymous %}
+                      {{
+                        url_for('reports.index',
+)
+                       }}
+                    {% endif %}
+                    ">
+            {% if current_user.is_anonymous %}
+              {{ budget }}
+            {% endif %}</a>
+            <div class="collapse navbar-collapse order-4 order-md-3" id="navbar">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href=""><i class="fa fa-pen-fancy fa-2x" title="Ajouter une nouvelle journée"></i></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="">
+                    <i class="fas fa-calendar-alt fa-2x" title="Voir la dernière journée"></i>
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a  class="nav-link dropdown-toggle"
+                      href=""
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false">
+                        <i class="fa fa-user-friends fa-2x" title="Voir la communauté"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">La communauté</a>
+                    <a class="dropdown-item" href="">Votre profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="">Se déconnecter</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
